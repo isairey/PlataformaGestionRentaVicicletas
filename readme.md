@@ -190,7 +190,7 @@ Este módulo funciona como administrador principal del sistema.
 # 📂 Estructura del proyecto
 
 ```bash
-OnlineBikeRentalManagementSystem/
+PlataformaGestionRentaVicicletas/
 │
 ├── admin/                    # Panel administrativo
 ├── user/                     # Módulo usuario
@@ -225,7 +225,7 @@ OnlineBikeRentalManagementSystem/
 ## 1️⃣ Clonar repositorio
 
 ```bash
-git clone https://github.com/isairey/OnlineBikeRentalManagementSystem.git
+git clone https://github.com/isairey/PlataformaGestionRentaVicicletas.git
 ```
 
 ---
@@ -235,7 +235,7 @@ git clone https://github.com/isairey/OnlineBikeRentalManagementSystem.git
 Copiar proyecto hacia:
 
 ```bash
-xampp/htdocs/OnlineBikeRentalManagementSystem/
+xampp/htdocs/PlataformaGestionRentaVicicletas/
 ```
 
 ---
@@ -345,8 +345,6 @@ http://localhost/OnlineBikeRentalManagementSystem/
 ### ⚙️ Administración de bicicletas
 ![Admin](https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop)
 
-### 📍 Gestión de estaciones
-![Stations](https://images.unsplash.com/photo-1508975551575-810f0d6e8d0d?q=80&w=1200&auto=format&fit=crop)
 
 </div>
 
