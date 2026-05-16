@@ -1,0 +1,290 @@
+{% extends "user/base.html" %}
+
+<!--title-->
+{% block title %}Home{% endblock %}
+
+<!--body-->
+{% block body %}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="../static/1.jpg" class="d-block w-100" alt="..." />
+    </div>
+
+    <div class="item">
+      <img src="../static/2.jpg" class="d-block w-100" alt="..." />
+    </div>
+
+    <div class="item">
+      <img src="../static/3.jpg" class="d-block w-100" alt="..." />
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!--form-->
+<form method="GET">
+  <h1>Search Any Bike</h1>
+  {{ filter.form.as_p }}
+  <button class="btnX" type="submit">Search</button>
+</form>
+
+<!--avaiable bikes-->
+<div class="bikes">
+  <h1>---</h1>
+  <h1>Available Bikes</h1>
+
+  <table>
+    <tr class="head">
+      <th>Station</th>
+      <th>Manufacturer</th>
+      <th>Color</th>
+      <th>Bike Model</th>
+      <th>Bike Number</th>
+      <!-- <th>Rent</th> -->
+    </tr>
+    {% for bike in filter.qs %}
+
+    <tr class="clickable-row" href="{% url 'take_bike'%}">
+      <td>{{bike.bike_station}}</td>
+      <td>{{bike.bike_brand}}</td>
+      <td>{{bike.bike_color}}</td>
+      <td>{{bike.bike_model}}</td>
+      <td>{{bike.bike_number}}</td>
+    </tr>
+
+    <tr>
+      {% endfor %}
+    </tr>
+  </table>
+</div>
+
+<div class="center">
+  <a class="btnSub" href="{% url 'take_bike' %}" style="text-decoration: none">
+    Take Bike
+  </a>
+  <h3> Click here to take bike at rent<h3>
+</div>
+
+<style>
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Nunito", sans-serif;
+    color: #384047;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 50px;
+    border-radius: 3px;
+  }
+
+  tr {
+    background-color: #f5f5f5;
+
+  }
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .clickable-row:hover {
+    background-color: #cdcdcd;
+  }
+
+  .head {
+    color: white;
+    background: green;
+  }
+
+  form {
+    max-width: 300px;
+    margin: 10px auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 35px;
+    margin: 0 0 20px 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 5px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+  }
+
+  select {
+    padding: 6px;
+    height: 32px;
+    border-radius: 2px;
+  }
+
+  button {
+    align: center;
+    padding: 10px 30px 10px 30px;
+    color: #fff;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+    margin-left: 25%;
+    background: -webkit-linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    background: -moz-linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    background: linear-gradient(to right, #019e35 0%, #02e64d 100%);
+  }
+
+  button:hover {
+    background: -webkit-linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    background: -moz-linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    background: linear-gradient(to right, #02e64d 0%, #019e35 100%);
+  }
+
+  .btnSub {
+    padding: 10px 30px 10px 30px;
+    color: #fff;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+    background: -webkit-linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    background: -moz-linear-gradient(to right, #019e35 0%, #02e64d 100%);
+    background: linear-gradient(to right, #019e35 0%, #02e64d 100%);
+  }
+
+  .btnSub:hover {
+    background: -webkit-linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    background: -moz-linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    background: linear-gradient(to right, #02e64d 0%, #019e35 100%);
+    color: white;
+  }
+
+  .center {
+    align: center;
+    text-align: center;
+    margin: 40px;
+  }
+
+  fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
+
+  legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
+
+  .bikes {
+    margin: 70px;
+    border-radius: 3px;
+  }
+
+  .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+  }
+
+  @media screen and (min-width: 480px) {
+    form {
+      max-width: 700px;
+    }
+  }
+</style>
+
+<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+{% endblock %}

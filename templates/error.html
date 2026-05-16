@@ -1,0 +1,60 @@
+{% extends "user/base.html" %}
+<!--title-->
+{% block title %}Home{% endblock %}
+<!--body-->
+{% block body %}
+
+<div class="page">
+  <h1 class="text-center">Error</h1>
+
+  <h2 class="text-center">
+    To view this page please Register or Login Yourself!
+  </h2>
+
+  <div class="text-center">
+    <a href="{% url 'register_user' %}">
+      <div class="button">
+        <div class="green">REGISTER</div>
+      </div>
+    </a>
+    <a href="{% url 'login_user' %}">
+      <div class="button" onclick="{% url 'login_user' %}">
+        <div class="blue">LOGIN</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<style>
+  .page {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+  .button {
+    background: linear-gradient(to bottom, #14eb49 5%, green 100%);
+    background-color: #14eb49;
+    border-radius: 11px;
+    border: 3px solid green;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 7px 76px;
+    text-decoration: none;
+    text-shadow: 2px 2px 0px grey;
+    margin: 50px;
+  }
+
+  .button:hover {
+    background: linear-gradient(to bottom, green 5%, #14eb49 100%);
+    background-color: green;
+  }
+
+  .button:active {
+    position: relative;
+    top: 1px;
+  }
+</style>
+{% endblock %}
